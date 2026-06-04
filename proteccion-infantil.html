@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Protección Infantil - Nexxus</title>
+    <meta name="description" content="Compromiso de Nexxus con la protección de niños, niñas y adolescentes frente a la explotación sexual y contenidos nocivos en internet.">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .legal-card { background: var(--white); border-radius: var(--radius-lg); box-shadow: var(--shadow-lg); padding: 40px 32px; position: relative; overflow: hidden; }
+        .legal-card-badge { display: inline-flex; align-items: center; gap: 8px; background: var(--primary-bg); color: var(--primary); padding: 6px 14px; border-radius: 50px; font-size: 0.75rem; font-weight: 700; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 16px; }
+        .legal-card h2 { font-size: 1.4rem; font-weight: 800; color: var(--dark); margin-bottom: 16px; }
+        .legal-card p { font-size: 0.95rem; color: var(--gray); line-height: 1.7; }
+
+        .auth-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 20px; margin-top: 32px; }
+        .auth-card { background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow); padding: 28px 20px; text-align: center; border: 1px solid var(--border); transition: all 0.3s ease; display: flex; flex-direction: column; }
+        .auth-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-lg); border-color: var(--primary-light); }
+        .auth-icon { width: 72px; height: 72px; margin: 0 auto 16px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.6rem; background: var(--primary-bg); color: var(--primary); }
+        .auth-card h3 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
+        .auth-card p { font-size: 0.85rem; color: var(--gray); line-height: 1.5; margin-bottom: 16px; flex-grow: 1; }
+        .auth-card .btn-sm { display: inline-block; padding: 8px 16px; border-radius: 8px; font-size: 0.8rem; font-weight: 600; background: var(--primary); color: var(--white); transition: all 0.3s; text-transform: uppercase; letter-spacing: 0.5px; }
+        .auth-card .btn-sm:hover { background: var(--primary-dark); }
+        .auth-card .btn-sm-outline { display: inline-block; padding: 6px 14px; border-radius: 8px; font-size: 0.75rem; font-weight: 600; border: 1px solid var(--primary-light); color: var(--primary); transition: all 0.3s; margin-top: 6px; text-transform: uppercase; letter-spacing: 0.5px; }
+        .auth-card .btn-sm-outline:hover { background: var(--primary-bg); }
+
+        .legal-warning { margin-top: 40px; padding: 20px 24px; border-left: 4px solid var(--primary); background: var(--primary-bg); border-radius: 0 var(--radius) var(--radius) 0; }
+        .legal-warning strong { color: var(--primary); }
+        .legal-warning p { font-size: 0.9rem; color: var(--gray); line-height: 1.6; }
+
+        .entity-band { margin-top: 48px; padding: 32px 0; border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); }
+        .entity-band p { text-align: center; font-size: 0.7rem; color: var(--gray); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 20px; font-weight: 600; }
+        .entity-logos { display: flex; flex-wrap: wrap; justify-content: center; gap: 24px; }
+        .entity-logo { width: 72px; height: 72px; border-radius: var(--radius); background: var(--white); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; transition: all 0.3s; text-decoration: none; padding: 12px; }
+        .entity-logo:hover { transform: scale(1.15); border-color: var(--primary-light); box-shadow: var(--shadow); }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="index.html" class="logo"><img src="LOGO NETXUS 1.png" alt="Nexxus"></a>
+            <button class="menu-toggle" aria-label="Menú"><i class="fas fa-bars"></i></button>
+            <nav class="nav">
+                <a href="index.html">Inicio</a>
+                <a href="index.html#planes">Planes</a>
+                <a href="tv.html">Televisión</a>
+                <a href="apps.html">Apps y Streaming</a>
+                <a href="speedtest.html">Test de Velocidad</a>
+                <div class="nav-dropdown">
+                    <a href="#" class="dropdown-toggle">Doc. Regulatoria <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="normatividad.html">Normativa General</a>
+                        <a href="tratamiento-datos.html">Tratamiento de Datos</a>
+                        <a href="proteccion-infantil.html" class="active">Protección Infantil</a>
+                        <a href="politica-judicial.html">Política Judicial</a>
+                        <a href="control-parental.html">Control Parental</a>
+                        <a href="datasheets.html">Fichas Técnicas</a>
+                        <a href="repositorio-documental.html">Repositorio Documental</a>
+                    </div>
+                </div>
+                <a href="contacto.html">Contacto</a>
+                <a href="https://wa.me/573208042471" class="btn-nav" target="_blank"><i class="fab fa-whatsapp"></i> 320 804 2471</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>PROTECCIÓN INFANTIL</h1>
+            <p>Compromiso absoluto contra la explotación sexual comercial de niños, niñas y adolescentes (ESCNNA) en cumplimiento de la Ley 679 de 2001.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+
+            <div class="legal-card">
+                <div class="legal-card-badge"><i class="fas fa-shield-alt"></i> Ley 679 de 2001</div>
+                <h2><i class="fas fa-gavel" style="color: var(--primary-light); margin-right: 10px;"></i> Nuestra Política de Cero Tolerancia</h2>
+                <p>En Nexxus rechazamos categóricamente cualquier forma de explotación sexual comercial de niños, niñas y adolescentes. En cumplimiento de la Ley 679 de 2001 y la Ley 1336 de 2009, implementamos medidas técnicas, operativas y pedagógicas para prevenir, detectar y denunciar cualquier actividad que atente contra la integridad de los menores en el entorno digital.</p>
+                <p style="margin-top: 16px;">Nuestra red cuenta con sistemas de bloqueo automático a sitios web reportados por el Ministerio TIC y las autoridades competentes. Además, promovemos activamente campañas de sensibilización sobre el uso seguro y responsable de internet dirigidas a padres, educadores y la comunidad en general.</p>
+            </div>
+
+            <h2 style="font-size: 1.5rem; font-weight: 800; margin-top: 48px; margin-bottom: 8px;"><i class="fas fa-phone-alt" style="color: var(--primary-light); margin-right: 10px;"></i> ¿DÓNDE DENUNCIAR?</h2>
+            <p style="color: var(--gray); margin-bottom: 8px;">Si conoces o sospechas de alguna situación de explotación sexual infantil, material abusivo o cualquier delito que involucre a menores de edad, repórtalo de forma confidencial ante las siguientes autoridades:</p>
+
+            <div class="auth-grid">
+                <div class="auth-card">
+                    <div class="auth-icon"><i class="fas fa-hand-holding-heart"></i></div>
+                    <h3>Te Protejo</h3>
+                    <p>Línea virtual y aplicación móvil del Gobierno Nacional para denunciar casos de explotación sexual y otros delitos contra la infancia.</p>
+                    <a href="https://teprotejo.org/" target="_blank" class="btn-sm">Ir al sitio</a>
+                </div>
+
+                <div class="auth-card">
+                    <div class="auth-icon"><i class="fas fa-home"></i></div>
+                    <h3>ICBF</h3>
+                    <p>Instituto Colombiano de Bienestar Familiar. Recibe denuncias relacionadas con vulneración de derechos de niños y adolescentes.</p>
+                    <a href="https://www.icbf.gov.co/" target="_blank" class="btn-sm-outline">Portal ICBF</a>
+                    <a href="tel:141" class="btn-sm-outline" style="border-color: var(--primary); background: var(--primary-bg);">Línea 141</a>
+                </div>
+
+                <div class="auth-card">
+                    <div class="auth-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3>Policía Nacional</h3>
+                    <p>Centro Cibernético Policial — CAI Virtual. Reporta delitos informáticos, pornografía infantil y material ilícito en línea.</p>
+                    <a href="https://caivirtual.policia.gov.co/" target="_blank" class="btn-sm-outline">CAI Virtual</a>
+                    <a href="tel:112" class="btn-sm-outline" style="border-color: var(--primary); background: var(--primary-bg);">Marcar 112</a>
+                </div>
+
+                <div class="auth-card">
+                    <div class="auth-icon"><i class="fas fa-balance-scale"></i></div>
+                    <h3>Fiscalía General</h3>
+                    <p>Sistema Nacional de Denuncia Virtual "A Denunciar". Interpone denuncias formales por delitos contra menores.</p>
+                    <a href="https://adenunciar.policia.gov.co/adenunciar/" target="_blank" class="btn-sm-outline">Portal</a>
+                    <a href="tel:122" class="btn-sm-outline" style="border-color: var(--primary); background: var(--primary-bg);">Marcar 122</a>
+                </div>
+            </div>
+
+            <div class="legal-warning">
+                <p><strong>ADVERTENCIA LEGAL:</strong> La explotación sexual y la pornografía infantil son delitos graves tipificados en el Código Penal Colombiano. Cualquier intento de acceder, almacenar o distribuir material de abuso sexual infantil a través de nuestra red será bloqueado inmediatamente y reportado a las autoridades competentes para su judicialización.</p>
+            </div>
+
+            <div class="entity-band">
+                <p>Operamos bajo la vigilancia y lineamientos de</p>
+                <div class="entity-logos">
+                    <a href="https://www.mintic.gov.co/" target="_blank" class="entity-logo" title="Ministerio TIC"><img src="logos/mintic.webp" alt="MinTIC" style="width: 36px; height: 36px; object-fit: contain;"></a>
+                    <a href="https://www.crcom.gov.co/" target="_blank" class="entity-logo" title="Comisión de Regulación de Comunicaciones"><img src="logos/crc.webp" alt="CRC" style="width: 36px; height: 36px; object-fit: contain;"></a>
+                    <a href="https://www.sic.gov.co/" target="_blank" class="entity-logo" title="Superintendencia de Industria y Comercio"><img src="logos/superintendencia.webp" alt="SIC" style="width: 36px; height: 36px; object-fit: contain;"></a>
+                    <a href="https://www.enticconfio.gov.co/" target="_blank" class="entity-logo" title="En TIC Confío"><img src="logos/internetsano.webp" alt="Internet Sano" style="width: 36px; height: 36px; object-fit: contain;"></a>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand"><a href="index.html" class="logo"><img src="LOGO NETXUS 1.png" alt="Nexxus" style="height: 160px;"></a><p>Internet de alta velocidad en Bucaramanga. Fibra óptica directa a tu hogar con la mejor velocidad y estabilidad.</p></div>
+                <div><h4>Servicios</h4><ul class="footer-links"><li><a href="index.html#planes">Planes de Internet</a></li><li><a href="tv.html">Televisión Digital</a></li><li><a href="apps.html">Apps y Streaming</a></li><li><a href="speedtest.html">Test de Velocidad</a></li><li><a href="index.html#cobertura">Cobertura</a></li></ul></div>
+                <div><h4>Contacto</h4><ul class="footer-links"><li><a href="tel:3208042471">320 804 2471</a></li><li><a href="mailto:Nexxussycdeinternet@gmail.com">Email</a></li><li><a href="https://wa.me/573208042471">WhatsApp</a></li><li><a href="contacto.html">Formulario PQR</a></li></ul></div>
+                <div><h4>Documentación</h4><ul class="footer-links"><li><a href="normatividad.html">Normativa General</a></li><li><a href="tratamiento-datos.html">Tratamiento de Datos</a></li><li><a href="proteccion-infantil.html">Protección Infantil</a></li><li><a href="politica-judicial.html">Política Judicial</a></li><li><a href="control-parental.html">Control Parental</a></li><li><a href="datasheets.html">Fichas Técnicas</a></li><li><a href="repositorio-documental.html">Repositorio Documental</a></li></ul></div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2026 Nexxus ISP. Todos los derechos reservados.</p><p>VIGILADO SUPERINTENDENCIA DE INDUSTRIA Y COMERCIO</p></div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/573208042471" class="whatsapp-float" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    <script src="js/script.js"></script>
+</body>
+</html>

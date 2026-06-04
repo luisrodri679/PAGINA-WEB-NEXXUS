@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Control Parental - Nexxus</title>
+    <meta name="description" content="Guía de control parental y seguridad digital para proteger a los menores en el hogar. Filtros DNS, apps de control parental y antivirus recomendados.">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        .step-card { background: var(--white); border-radius: var(--radius-lg); box-shadow: var(--shadow); padding: 32px; border: 1px solid var(--border); transition: all 0.3s; }
+        .step-card:hover { box-shadow: var(--shadow-lg); border-color: var(--primary-light); }
+        .step-number { width: 56px; height: 56px; min-width: 56px; border-radius: 50%; background: var(--primary-bg); color: var(--primary); display: flex; align-items: center; justify-content: center; font-size: 1.3rem; font-weight: 800; }
+        .step-card h3 { font-size: 1.15rem; font-weight: 700; }
+        .step-card p, .step-card li { font-size: 0.9rem; color: var(--gray); line-height: 1.6; }
+        .step-card ul { padding-left: 0; }
+        .step-card ul li { list-style: none; padding: 4px 0; padding-left: 20px; position: relative; }
+        .step-card ul li::before { content: '\f00c'; font-family: 'Font Awesome 6 Free'; font-weight: 900; position: absolute; left: 0; color: var(--primary-light); font-size: 0.75rem; top: 6px; }
+
+        .brand-card { background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow); padding: 24px; text-align: center; border: 1px solid var(--border); transition: all 0.3s; }
+        .brand-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--primary-light); }
+        .brand-card .logo-box { width: 64px; height: 64px; margin: 0 auto 12px; border-radius: var(--radius); display: flex; align-items: center; justify-content: center; font-size: 1.8rem; color: #fff; }
+        .brand-card h4 { font-size: 0.95rem; font-weight: 700; margin-bottom: 4px; }
+        .brand-card .dns { font-size: 0.8rem; color: var(--primary); font-weight: 600; font-family: monospace; background: var(--primary-bg); padding: 4px 12px; border-radius: 6px; display: inline-block; margin-top: 8px; }
+        .brand-card p { font-size: 0.85rem; color: var(--gray); line-height: 1.5; margin-top: 8px; }
+
+        .app-card { background: var(--white); border-radius: var(--radius); box-shadow: var(--shadow); padding: 28px; border: 1px solid var(--border); transition: all 0.3s; display: flex; gap: 20px; align-items: flex-start; }
+        .app-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--primary-light); }
+        .app-card .icon-box { width: 56px; height: 56px; min-width: 56px; border-radius: var(--radius); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: #fff; }
+        .app-card h4 { font-size: 1rem; font-weight: 700; margin-bottom: 4px; }
+        .app-card p { font-size: 0.85rem; color: var(--gray); line-height: 1.5; }
+        .app-card .tag { display: inline-block; font-size: 0.7rem; font-weight: 600; padding: 2px 10px; border-radius: 50px; margin-top: 8px; }
+
+        .rec-card { background: var(--white); padding: 24px; border-radius: var(--radius); box-shadow: var(--shadow); border-top: 4px solid var(--primary); transition: all 0.3s; }
+        .rec-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+        .rec-card h4 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
+        .rec-card p { font-size: 0.85rem; color: var(--gray); line-height: 1.5; }
+
+        .glossary-card { background: var(--gray-light); padding: 20px; border-radius: var(--radius); transition: all 0.3s; }
+        .glossary-card:hover { background: var(--primary-bg); }
+        .glossary-card h4 { color: var(--primary); margin-bottom: 6px; font-size: 0.95rem; }
+        .glossary-card p { color: var(--gray); font-size: 0.85rem; line-height: 1.5; }
+
+        .antivirus-card { background: var(--white); padding: 28px; border-radius: var(--radius); box-shadow: var(--shadow); text-align: center; border: 1px solid var(--border); transition: all 0.3s; }
+        .antivirus-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--primary-light); }
+        .antivirus-card h3 { color: var(--primary); margin-bottom: 4px; }
+        .antivirus-card .sub { font-size: 0.85rem; color: var(--gray); margin-bottom: 12px; }
+        .antivirus-card p { color: var(--gray); font-size: 0.9rem; line-height: 1.5; margin-bottom: 16px; }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <div class="header-inner">
+            <a href="index.html" class="logo"><img src="LOGO NETXUS 1.png" alt="Nexxus"></a>
+            <button class="menu-toggle" aria-label="Menú"><i class="fas fa-bars"></i></button>
+            <nav class="nav">
+                <a href="index.html">Inicio</a>
+                <a href="index.html#planes">Planes</a>
+                <a href="tv.html">Televisión</a>
+                <a href="apps.html">Apps y Streaming</a>
+                <a href="speedtest.html">Test de Velocidad</a>
+                <div class="nav-dropdown">
+                    <a href="#" class="dropdown-toggle">Doc. Regulatoria <i class="fas fa-chevron-down"></i></a>
+                    <div class="dropdown-menu">
+                        <a href="normatividad.html">Normativa General</a>
+                        <a href="tratamiento-datos.html">Tratamiento de Datos</a>
+                        <a href="proteccion-infantil.html">Protección Infantil</a>
+                        <a href="politica-judicial.html">Política Judicial</a>
+                        <a href="control-parental.html">Control Parental</a>
+                        <a href="datasheets.html">Fichas Técnicas</a>
+                        <a href="repositorio-documental.html">Repositorio Documental</a>
+                    </div>
+                </div>
+                <a href="contacto.html">Contacto</a>
+                <a href="https://wa.me/573208042471" class="btn-nav" target="_blank"><i class="fab fa-whatsapp"></i> 320 804 2471</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-header">
+        <div class="container">
+            <h1>CONTROL PARENTAL Y SEGURIDAD</h1>
+            <p>Internet es una herramienta poderosa para el aprendizaje y el entretenimiento, pero requiere supervisión activa. Descubre nuestra guía para proteger a los menores en el entorno digital.</p>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+
+            <div class="section-header">
+                <span class="badge">Seguridad en la Red</span>
+                <h2>EL DESAFÍO DIGITAL EN EL HOGAR</h2>
+                <p>En NEXXUS garantizamos la conexión hasta tu hogar, pero la gestión del contenido que se consume dentro de la red doméstica es una responsabilidad compartida entre todos.</p>
+            </div>
+
+            <p style="color: var(--gray); margin-bottom: 40px; text-align: center; max-width: 700px; margin-left: auto; margin-right: auto; font-size: 0.95rem; line-height: 1.7;">El control parental va más allá de bloquear sitios web. Es una estrategia integral que combina comunicación en familia, configuración de redes y uso de herramientas especializadas para que los menores naveguen seguros.</p>
+
+            <!-- STEP 1 -->
+            <div class="step-card" style="margin-bottom: 24px;">
+                <div style="display: flex; gap: 20px;">
+                    <div class="step-number">1</div>
+                    <div style="flex: 1;">
+                        <h3>Reglas del Hogar <span style="color: var(--gray); font-weight: 400;">(Factor Humano)</span></h3>
+                        <p style="margin: 8px 0 12px;">La tecnología no sustituye la supervisión de los padres. El diálogo y las normas en casa son el primer filtro de seguridad:</p>
+                        <ul>
+                            <li>Colocar computadores y consolas en áreas comunes del hogar</li>
+                            <li>Definir horarios libres de pantallas, especialmente en comidas y antes de dormir</li>
+                            <li>Acompañar a los niños pequeños mientras navegan y conocer las apps que usan los adolescentes</li>
+                            <li>Enseñarles a no compartir fotos personales, ubicación ni contraseñas con desconocidos</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STEP 2 -->
+            <div class="step-card" style="margin-bottom: 24px;">
+                <div style="display: flex; gap: 20px;">
+                    <div class="step-number">2</div>
+                    <div style="flex: 1;">
+                        <h3>Control a Nivel de Red <span style="color: var(--gray); font-weight: 400;">(Filtros DNS)</span></h3>
+                        <p style="margin: 8px 0 12px;">Configurando filtros DNS familiares directamente en el router puedes bloquear contenido para adultos en todos los dispositivos conectados al WiFi (Smart TVs, celulares, consolas) sin instalar apps en cada uno.</p>
+                        <p style="font-weight: 600; color: var(--dark); margin-bottom: 12px;">DNS gratuitos recomendados para familias:</p>
+                        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 12px;">
+                            <div class="brand-card">
+                                <div class="logo-box" style="background: #F48120;"><i class="fas fa-cloud"></i></div>
+                                <h4>Cloudflare for Families</h4>
+                                <span class="dns">1.1.1.3</span> <span class="dns">1.0.0.3</span>
+                                <p>Bloquea malware y contenido para adultos. Alta velocidad y privacidad garantizada.</p>
+                            </div>
+                            <div class="brand-card">
+                                <div class="logo-box" style="background: #00B6C8;"><i class="fas fa-shield-halved"></i></div>
+                                <h4>OpenDNS Family Shield</h4>
+                                <span class="dns">208.67.222.123</span> <span class="dns">208.67.220.123</span>
+                                <p>Protección familiar preconfigurada que bloquea contenido inapropiado automáticamente.</p>
+                            </div>
+                        </div>
+                        <p style="font-size: 0.85rem; color: var(--gray); background: var(--primary-bg); padding: 12px 16px; border-radius: 10px; margin-top: 8px;"><i class="fas fa-headset" style="color: var(--primary-light); margin-right: 8px;"></i> ¿Necesitas ayuda? Un técnico de NEXXUS puede aplicar estos filtros en tu router de forma remota.</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- STEP 3 -->
+            <div class="step-card" style="margin-bottom: 40px;">
+                <div style="display: flex; gap: 20px;">
+                    <div class="step-number">3</div>
+                    <div style="flex: 1;">
+                        <h3>Control a Nivel de Dispositivo <span style="color: var(--gray); font-weight: 400;">(Apps)</span></h3>
+                        <p style="margin: 8px 0 16px;">Para un control detallado como saber qué apps descargan, limitar horas de uso o rastrear el GPS, se requiere software instalado directamente en el dispositivo del menor. Estas son las herramientas oficiales gratuitas:</p>
+                        <div style="display: grid; gap: 16px;">
+                            <div class="app-card">
+                                <div class="icon-box" style="background: #4285F4;"><i class="fab fa-google"></i></div>
+                                <div>
+                                    <h4>Google Family Link</h4>
+                                    <p>Para Android y Chromebooks. Bloquea descargas, establece horarios de uso, localiza el dispositivo y envía resúmenes de actividad al padre.</p>
+                                    <span class="tag" style="background: #E8F5E9; color: #2E7D32;">Android / Chromebook</span>
+                                </div>
+                            </div>
+                            <div class="app-card">
+                                <div class="icon-box" style="background: #00A4EF;"><i class="fab fa-microsoft"></i></div>
+                                <div>
+                                    <h4>Microsoft Family Safety</h4>
+                                    <p>Para Windows y Xbox. Restringe juegos por clasificación de edad, limita el tiempo de pantalla y envía resúmenes de actividad semanales al correo.</p>
+                                    <span class="tag" style="background: #E3F2FD; color: #1565C0;">Windows / Xbox</span>
+                                </div>
+                            </div>
+                            <div class="app-card">
+                                <div class="icon-box" style="background: #555555;"><i class="fab fa-apple"></i></div>
+                                <div>
+                                    <h4>Apple Tiempo de Uso (Screen Time)</h4>
+                                    <p>Nativo en iPhone, iPad y Mac. Bloquea compras no autorizadas, restringe contenido web por edad y limita el uso de apps por categoría.</p>
+                                    <span class="tag" style="background: #F3E5F5; color: #7B1FA2;">iOS / iPadOS / macOS</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- RECOMMENDATIONS -->
+            <div class="section-header">
+                <h2>RECOMENDACIONES DE SEGURIDAD</h2>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; margin-bottom: 48px;">
+                <div class="rec-card"><h4><i class="fas fa-eye-slash" style="color: var(--primary-light); margin-right: 8px;"></i> Privacidad y Huella Digital</h4><p>Configura los perfiles como privados. Todo lo que se publica en internet deja un rastro permanente. Nunca compartas ubicación en tiempo real.</p></div>
+                <div class="rec-card"><h4><i class="fas fa-mobile-screen" style="color: var(--primary-light); margin-right: 8px;"></i> Verificación de Apps</h4><p>Antes de instalar un juego, revisa los permisos que solicita y la clasificación por edades. Desactiva las compras integradas para evitar cobros inesperados.</p></div>
+                <div class="rec-card"><h4><i class="fas fa-key" style="color: var(--primary-light); margin-right: 8px;"></i> Contraseñas Seguras</h4><p>Crea claves distintas para cada cuenta combinando mayúsculas, números y símbolos. Evita fechas de nacimiento y cámbialas periódicamente.</p></div>
+                <div class="rec-card"><h4><i class="fas fa-fish" style="color: var(--primary-light); margin-right: 8px;"></i> Alerta con el Phishing</h4><p>Si recibes correos pidiendo información personal o contraseñas, verifica el remitente. Ante la duda, contacta directamente a la entidad oficial.</p></div>
+                <div class="rec-card"><h4><i class="fas fa-wifi" style="color: var(--primary-light); margin-right: 8px;"></i> Conexiones Seguras</h4><p>Para compras o transacciones bancarias usa siempre redes de confianza como tu WiFi de casa. Evita las redes WiFi públicas y gratuitas.</p></div>
+                <div class="rec-card"><h4><i class="fas fa-hard-drive" style="color: var(--primary-light); margin-right: 8px;"></i> Protección y Respaldos</h4><p>Descarga archivos solo de fuentes oficiales. Mantén el sistema operativo actualizado y activa copias de seguridad en la nube para proteger tu información.</p></div>
+            </div>
+
+            <!-- GLOSARIO -->
+            <div class="section-header">
+                <h2>GLOSARIO DE AMENAZAS DIGITALES</h2>
+                <p>Conoce los términos y tipos de ciberamenazas más comunes para proteger tu red familiar.</p>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 16px; margin-bottom: 48px;">
+                <div class="glossary-card"><h4><i class="fas fa-bug" style="margin-right: 6px;"></i> Malware</h4><p>Software malicioso diseñado para infiltrarse, dañar dispositivos o robar información. Incluye virus, troyanos y gusanos.</p></div>
+                <div class="glossary-card"><h4><i class="fas fa-lock" style="margin-right: 6px;"></i> Ransomware</h4><p>Secuestra los archivos del equipo cifrándolos y exige un rescate económico, usualmente en criptomonedas, para liberarlos.</p></div>
+                <div class="glossary-card"><h4><i class="fas fa-fish" style="margin-right: 6px;"></i> Phishing</h4><p>Correos falsos que suplantan bancos o empresas para robar contraseñas y datos financieros.</p></div>
+                <div class="glossary-card"><h4><i class="fas fa-message" style="margin-right: 6px;"></i> Smishing y Vishing</h4><p>Variantes del phishing: smishing usa SMS o WhatsApp falsos; vishing usa llamadas telefónicas de suplantación.</p></div>
+                <div class="glossary-card"><h4><i class="fas fa-eye" style="margin-right: 6px;"></i> Spyware</h4><p>Programa espía que monitorea la actividad del usuario y envía información confidencial a ciberdelincuentes.</p></div>
+                <div class="glossary-card"><h4><i class="fas fa-wand-magic-sparkles" style="margin-right: 6px;"></i> Deepfake</h4><p>Manipulación de video y audio con IA para crear contenido falso realista, usado en fraudes y desinformación.</p></div>
+                <div class="glossary-card"><h4><i class="fas fa-ghost" style="margin-right: 6px;"></i> Spoofing</h4><p>Suplantación de identidad digital (IP, correo o número telefónico) para engañar a la víctima.</p></div>
+                <div class="glossary-card"><h4><i class="fas fa-microchip" style="margin-right: 6px;"></i> Cryptojacking</h4><p>Infección silenciosa que usa el procesador de tu equipo para minar criptomonedas sin tu consentimiento.</p></div>
+            </div>
+
+            <!-- ANTIVIRUS -->
+            <div class="section-header">
+                <h2>ANTIVIRUS RECOMENDADOS</h2>
+                <p>Combinar un filtro de red con un buen antivirus es la defensa más completa para tu hogar.</p>
+            </div>
+            <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 20px; margin-bottom: 40px;">
+                <div class="antivirus-card">
+                    <div class="logo-box" style="width: 56px; height: 56px; background: #D11415; border-radius: var(--radius); display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; color: #fff; font-size: 1.5rem;"><i class="fas fa-shield-halved"></i></div>
+                    <h3>Bitdefender</h3>
+                    <div class="sub">Total Security</div>
+                    <p>Motor antimalware premiado. Incluye control parental avanzado, protección contra ransomware y optimizador de rendimiento.</p>
+                    <a href="https://www.bitdefender.es/" target="_blank" class="btn btn-purple" style="padding: 10px 24px; font-size: 0.85rem;">Sitio Oficial</a>
+                </div>
+                <div class="antivirus-card">
+                    <div class="logo-box" style="width: 56px; height: 56px; background: #00A4EF; border-radius: var(--radius); display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; color: #fff; font-size: 1.5rem;"><i class="fas fa-shield"></i></div>
+                    <h3>Norton 360</h3>
+                    <div class="sub">Deluxe / Premium</div>
+                    <p>Suite completa con VPN, protección contra robo de identidad, monitoreo de la Dark Web y control parental integrado.</p>
+                    <a href="https://es.norton.com/" target="_blank" class="btn btn-purple" style="padding: 10px 24px; font-size: 0.85rem;">Sitio Oficial</a>
+                </div>
+                <div class="antivirus-card">
+                    <div class="logo-box" style="width: 56px; height: 56px; background: #0066FF; border-radius: var(--radius); display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; color: #fff; font-size: 1.5rem;"><i class="fas fa-shield-virus"></i></div>
+                    <h3>Kaspersky</h3>
+                    <div class="sub">Premium Security</div>
+                    <p>Protección proactiva con Safe Kids: localiza menores en mapa, gestiona tiempos y bloquea contenido inapropiado.</p>
+                    <a href="https://latam.kaspersky.com/" target="_blank" class="btn btn-purple" style="padding: 10px 24px; font-size: 0.85rem;">Sitio Oficial</a>
+                </div>
+            </div>
+
+            <!-- CTA -->
+            <div style="text-align: center; padding: 40px; background: var(--primary-bg); border-radius: var(--radius-lg); margin-bottom: 24px;">
+                <p style="font-size: 1.1rem; color: var(--dark); margin-bottom: 8px;"><strong>La comunicación abierta y la educación son cruciales</strong></p>
+                <p style="color: var(--gray); margin-bottom: 20px; font-size: 0.95rem;">Ningún software o filtro es 100% infalible. Construir una relación de confianza donde los menores se sientan seguros de acudir a un adulto si ven algo perturbador es la mejor barrera de protección.</p>
+                <a href="https://wa.me/573208042471?text=Necesito%20ayuda%20con%20Control%20Parental" class="btn btn-whatsapp" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Solicitar ayuda técnica
+                </a>
+            </div>
+
+            <div style="text-align: center; padding: 24px; background: var(--gray-light); border-radius: var(--radius);">
+                <h4 style="margin-bottom: 8px;">¿Sospechas de un delito informático o abuso?</h4>
+                <p style="color: var(--gray); font-size: 0.9rem; margin-bottom: 16px;">Si crees que un menor ha sido víctima de grooming, ciberacoso o has detectado material de explotación infantil, repórtalo a las autoridades.</p>
+                <a href="proteccion-infantil.html" class="btn btn-purple">Rutas de Denuncia</a>
+            </div>
+
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand"><a href="index.html" class="logo"><img src="LOGO NETXUS 1.png" alt="Nexxus" style="height: 160px;"></a><p>Internet de alta velocidad en Bucaramanga. Fibra óptica directa a tu hogar con la mejor velocidad y estabilidad.</p></div>
+                <div><h4>Servicios</h4><ul class="footer-links"><li><a href="index.html#planes">Planes de Internet</a></li><li><a href="tv.html">Televisión Digital</a></li><li><a href="apps.html">Apps y Streaming</a></li><li><a href="speedtest.html">Test de Velocidad</a></li><li><a href="index.html#cobertura">Cobertura</a></li></ul></div>
+                <div><h4>Contacto</h4><ul class="footer-links"><li><a href="tel:3208042471">320 804 2471</a></li><li><a href="mailto:Nexxussycdeinternet@gmail.com">Email</a></li><li><a href="https://wa.me/573208042471">WhatsApp</a></li><li><a href="contacto.html">Formulario PQR</a></li></ul></div>
+                <div><h4>Documentación</h4><ul class="footer-links"><li><a href="normatividad.html">Normativa General</a></li><li><a href="tratamiento-datos.html">Tratamiento de Datos</a></li><li><a href="proteccion-infantil.html">Protección Infantil</a></li><li><a href="politica-judicial.html">Política Judicial</a></li><li><a href="control-parental.html">Control Parental</a></li><li><a href="datasheets.html">Fichas Técnicas</a></li><li><a href="repositorio-documental.html">Repositorio Documental</a></li></ul></div>
+            </div>
+            <div class="footer-bottom"><p>&copy; 2026 Nexxus ISP. Todos los derechos reservados.</p><p>VIGILADO SUPERINTENDENCIA DE INDUSTRIA Y COMERCIO</p></div>
+        </div>
+    </footer>
+
+    <a href="https://wa.me/573208042471" class="whatsapp-float" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    <script src="js/script.js"></script>
+</body>
+</html>
